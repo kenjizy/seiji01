@@ -6,6 +6,8 @@
 package testappseiji;
 
 import config.dbConnector;
+import config.passwordHasher;
+import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -78,11 +80,11 @@ public class regForm extends javax.swing.JFrame {
         ln = new javax.swing.JTextField();
         em = new javax.swing.JTextField();
         un = new javax.swing.JTextField();
-        ps = new javax.swing.JTextField();
         ut = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
+        ps = new javax.swing.JPasswordField();
         jPanel5 = new javax.swing.JPanel();
 
         jPanel3.setBackground(new java.awt.Color(255, 153, 51));
@@ -147,8 +149,6 @@ public class regForm extends javax.swing.JFrame {
         em.setBounds(190, 140, 230, 30);
         jPanel1.add(un);
         un.setBounds(190, 180, 230, 30);
-        jPanel1.add(ps);
-        ps.setBounds(190, 220, 230, 30);
 
         ut.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "User" }));
         jPanel1.add(ut);
@@ -182,6 +182,8 @@ public class regForm extends javax.swing.JFrame {
         });
         jPanel1.add(jLabel7);
         jLabel7.setBounds(220, 340, 190, 20);
+        jPanel1.add(ps);
+        ps.setBounds(190, 220, 230, 30);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 450, 400);
@@ -216,8 +218,11 @@ public class regForm extends javax.swing.JFrame {
                 System.out.println("Duplicate Exist");
             }else{
              dbConnector dbc = new dbConnector();
-        if( dbc.insertData ("INSERT INTO tbl_user(u_fname, u_lname, u_email, u_username, u_password, u_type, u_status)"
-                + "VALUES('"+fn.getText()+"','"+ln.getText()+"','"+em.getText()+"','"+un.getText()+"','"+ps.getText()+"','"+ut.getSelectedItem()+"','Pending')"))
+             
+             try{
+             String pass = passwordHasher.hashPassword(ps.getText());
+           if( dbc.insertData ("INSERT INTO tbl_user(u_fname, u_lname, u_email, u_username, u_password, u_type, u_status)"
+                + "VALUES('"+fn.getText()+"','"+ln.getText()+"','"+em.getText()+"','"+un.getText()+"','"+pass+"','"+ut.getSelectedItem()+"','Pending')"))
         {
             JOptionPane.showMessageDialog(null,"Inserted Successfully!");
             loginForm lfr = new loginForm();
@@ -226,6 +231,9 @@ public class regForm extends javax.swing.JFrame {
         }else{
              JOptionPane.showMessageDialog(null,"Connection Error!");
         }
+          }catch(NoSuchAlgorithmException ex){
+                 System.out.println(""+ex);
+          }
             
         }
        
@@ -293,7 +301,7 @@ public class regForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JTextField ln;
-    private javax.swing.JTextField ps;
+    private javax.swing.JPasswordField ps;
     private javax.swing.JTextField un;
     private javax.swing.JComboBox<String> ut;
     // End of variables declaration//GEN-END:variables

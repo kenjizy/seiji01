@@ -5,6 +5,7 @@
  */
 package admin;
 
+import config.Session;
 import javax.swing.JOptionPane;
 import testappseiji.loginForm;
 
@@ -40,7 +41,9 @@ public class adminDashboard extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        acc_name = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        acc_uid = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -51,7 +54,7 @@ public class adminDashboard extends javax.swing.JFrame {
 
         jPanel5.setLayout(null);
         jPanel3.add(jPanel5);
-        jPanel5.setBounds(49, 28, 176, 153);
+        jPanel5.setBounds(49, 28, 0, 0);
 
         jPanel6.setBackground(new java.awt.Color(255, 153, 204));
         jPanel6.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -73,6 +76,11 @@ public class adminDashboard extends javax.swing.JFrame {
         jPanel6.setBounds(30, 30, 160, 140);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(255, 102, 102));
@@ -116,30 +124,40 @@ public class adminDashboard extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-user-64.png"))); // NOI18N
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel4.setText("ADMIN");
+        acc_name.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        acc_name.setText("ADMIN");
+
+        acc_uid.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        acc_uid.setText("ADMIN");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(48, 48, 48)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel3))
-                .addContainerGap(48, Short.MAX_VALUE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(acc_uid, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(acc_name, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(252, Short.MAX_VALUE))
+                .addGap(11, 11, 11)
+                .addComponent(acc_name, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addComponent(acc_uid, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel4)
+                .addContainerGap(197, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel2);
@@ -222,6 +240,20 @@ public class adminDashboard extends javax.swing.JFrame {
       this.dispose();  
     }//GEN-LAST:event_jLabel2MouseClicked
 
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+       Session sess = Session.getInstance();
+       if(sess.getUid()== 0){
+       JOptionPane.showMessageDialog(null,"No account, Login First!");
+       loginForm lf = new loginForm();
+       lf.setVisible(true);
+       this.dispose();
+       }else{   
+       acc_name.setText(""+sess.getFname()); 
+       acc_uid.setText(""+sess.getUid()); 
+       }
+ 
+    }//GEN-LAST:event_formWindowActivated
+
     /**
      * @param args the command line arguments
      */
@@ -258,6 +290,8 @@ public class adminDashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel acc_name;
+    private javax.swing.JLabel acc_uid;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
