@@ -96,12 +96,14 @@ public class changePass extends javax.swing.JFrame {
         });
         getContentPane().setLayout(null);
 
-        jPanel1.setBackground(new java.awt.Color(255, 102, 102));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 153, 0));
         jLabel1.setText("CHANGE PASSWORD");
 
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 153, 0));
         jLabel2.setText("LOGOUT");
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -110,6 +112,7 @@ public class changePass extends javax.swing.JFrame {
         });
 
         iddisplay.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        iddisplay.setForeground(new java.awt.Color(255, 153, 0));
         iddisplay.setText("(UID)");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -134,7 +137,7 @@ public class changePass extends javax.swing.JFrame {
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 550, 42);
 
-        jPanel2.setBackground(new java.awt.Color(255, 51, 51));
+        jPanel2.setBackground(new java.awt.Color(255, 153, 0));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-user-64.png"))); // NOI18N
 
@@ -172,9 +175,10 @@ public class changePass extends javax.swing.JFrame {
         getContentPane().add(jPanel2);
         jPanel2.setBounds(0, 40, 160, 360);
 
-        jPanel4.setBackground(new java.awt.Color(255, 102, 153));
+        jPanel4.setBackground(new java.awt.Color(0, 0, 0));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 153, 0));
         jLabel4.setText("Type Old Pass:");
 
         oldpass.addActionListener(new java.awt.event.ActionListener() {
@@ -184,14 +188,17 @@ public class changePass extends javax.swing.JFrame {
         });
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 153, 0));
         jLabel9.setText("Enter New Pass:");
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 153, 0));
         jLabel10.setText("Confirm Pass:");
 
-        jPanel7.setBackground(new java.awt.Color(255, 51, 102));
+        jPanel7.setBackground(new java.awt.Color(102, 102, 102));
         jPanel7.setLayout(null);
 
+        jLabel6.setForeground(new java.awt.Color(255, 153, 0));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Save");
         jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -202,9 +209,10 @@ public class changePass extends javax.swing.JFrame {
         jPanel7.add(jLabel6);
         jLabel6.setBounds(0, 4, 70, 30);
 
-        jPanel8.setBackground(new java.awt.Color(255, 51, 102));
+        jPanel8.setBackground(new java.awt.Color(102, 102, 102));
         jPanel8.setLayout(null);
 
+        jLabel8.setForeground(new java.awt.Color(255, 153, 0));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Back");
         jPanel8.add(jLabel8);

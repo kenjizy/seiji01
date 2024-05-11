@@ -28,8 +28,8 @@ public class usersForm extends javax.swing.JFrame {
         initComponents();
         displayData();
     }
-     Color navcolor = new Color(255,51,51); 
-     Color hovercolor = new Color(255,102,153); 
+     Color navcolor = new Color(255,153,0); 
+     Color hovercolor = new Color(255,153,0); 
     
     
     public void displayData(){
@@ -80,12 +80,14 @@ public class usersForm extends javax.swing.JFrame {
         });
         getContentPane().setLayout(null);
 
-        jPanel1.setBackground(new java.awt.Color(255, 102, 102));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 153, 0));
         jLabel1.setText("USERS FORM");
 
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 153, 0));
         jLabel2.setText("BACK");
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -117,7 +119,7 @@ public class usersForm extends javax.swing.JFrame {
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 730, 48);
 
-        jPanel2.setBackground(new java.awt.Color(255, 51, 51));
+        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-user-64.png"))); // NOI18N
 
@@ -130,7 +132,7 @@ public class usersForm extends javax.swing.JFrame {
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Current User:");
 
-        p_add.setBackground(new java.awt.Color(255, 51, 51));
+        p_add.setBackground(new java.awt.Color(255, 153, 0));
         p_add.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 p_addMouseClicked(evt);
@@ -166,7 +168,7 @@ public class usersForm extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        edit.setBackground(new java.awt.Color(255, 51, 51));
+        edit.setBackground(new java.awt.Color(255, 150, 0));
         edit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 editMouseClicked(evt);
@@ -235,7 +237,7 @@ public class usersForm extends javax.swing.JFrame {
         getContentPane().add(jPanel2);
         jPanel2.setBounds(0, 40, 160, 430);
 
-        jPanel3.setBackground(new java.awt.Color(255, 102, 153));
+        jPanel3.setBackground(new java.awt.Color(255, 153, 0));
 
         usersTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

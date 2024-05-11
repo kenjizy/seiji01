@@ -100,7 +100,7 @@
     <Container class="javax.swing.JPanel" name="jPanel1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="66" green="66" red="ff" type="rgb"/>
+          <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
       </Properties>
       <Constraints>
@@ -136,6 +136,9 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial Black" size="18" style="1"/>
             </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="99" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="CHANGE PASSWORD"/>
           </Properties>
         </Component>
@@ -143,6 +146,9 @@
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial Black" size="18" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="99" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="LOGOUT"/>
           </Properties>
@@ -155,6 +161,9 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="14" style="1"/>
             </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="99" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="(UID)"/>
           </Properties>
         </Component>
@@ -163,7 +172,7 @@
     <Container class="javax.swing.JPanel" name="jPanel2">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="33" green="33" red="ff" type="rgb"/>
+          <Color blue="0" green="99" red="ff" type="rgb"/>
         </Property>
       </Properties>
       <Constraints>
@@ -229,7 +238,7 @@
     <Container class="javax.swing.JPanel" name="jPanel4">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="99" green="66" red="ff" type="rgb"/>
+          <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
       </Properties>
       <Constraints>
@@ -306,6 +315,9 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="11" style="1"/>
             </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="99" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Type Old Pass:"/>
           </Properties>
         </Component>
@@ -319,6 +331,9 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="11" style="1"/>
             </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="99" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Enter New Pass:"/>
           </Properties>
         </Component>
@@ -329,6 +344,9 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="11" style="1"/>
             </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="99" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Confirm Pass:"/>
           </Properties>
         </Component>
@@ -337,7 +355,7 @@
         <Container class="javax.swing.JPanel" name="jPanel7">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="66" green="33" red="ff" type="rgb"/>
+              <Color blue="66" green="66" red="66" type="rgb"/>
             </Property>
           </Properties>
 
@@ -347,6 +365,9 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel6">
               <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="99" red="ff" type="rgb"/>
+                </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="Save"/>
               </Properties>
@@ -364,7 +385,7 @@
         <Container class="javax.swing.JPanel" name="jPanel8">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="66" green="33" red="ff" type="rgb"/>
+              <Color blue="66" green="66" red="66" type="rgb"/>
             </Property>
           </Properties>
 
@@ -374,6 +395,9 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel8">
               <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="99" red="ff" type="rgb"/>
+                </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="Back"/>
               </Properties>

@@ -83,12 +83,14 @@ public class adminDashboard extends javax.swing.JFrame {
         });
         getContentPane().setLayout(null);
 
-        jPanel1.setBackground(new java.awt.Color(255, 102, 102));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 153, 0));
         jLabel1.setText("ADMIN DASHBOARD");
 
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 153, 0));
         jLabel2.setText("LOGOUT");
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -120,7 +122,7 @@ public class adminDashboard extends javax.swing.JFrame {
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 550, 42);
 
-        jPanel2.setBackground(new java.awt.Color(255, 51, 51));
+        jPanel2.setBackground(new java.awt.Color(255, 153, 0));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-user-64.png"))); // NOI18N
 
@@ -163,7 +165,7 @@ public class adminDashboard extends javax.swing.JFrame {
         getContentPane().add(jPanel2);
         jPanel2.setBounds(0, 40, 160, 360);
 
-        jPanel4.setBackground(new java.awt.Color(255, 102, 153));
+        jPanel4.setBackground(new java.awt.Color(0, 0, 0));
 
         jPanel7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -174,6 +176,7 @@ public class adminDashboard extends javax.swing.JFrame {
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-users-100.png"))); // NOI18N
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 153, 0));
         jLabel8.setText("USER");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);

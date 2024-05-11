@@ -108,36 +108,42 @@ public class regForm extends javax.swing.JFrame {
         getContentPane().add(jPanel2);
         jPanel2.setBounds(589, 0, 0, 397);
 
-        jPanel1.setBackground(new java.awt.Color(255, 102, 102));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 153, 51));
         jLabel1.setText("Account Type:");
         jPanel1.add(jLabel1);
         jLabel1.setBounds(100, 270, 80, 20);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 153, 0));
         jLabel2.setText("First Name:");
         jPanel1.add(jLabel2);
         jLabel2.setBounds(100, 70, 80, 20);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 153, 0));
         jLabel3.setText("Last Name:");
         jPanel1.add(jLabel3);
         jLabel3.setBounds(100, 110, 80, 20);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 153, 0));
         jLabel4.setText("Email:");
         jPanel1.add(jLabel4);
         jLabel4.setBounds(100, 150, 80, 20);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 153, 51));
         jLabel5.setText("Username:");
         jPanel1.add(jLabel5);
         jLabel5.setBounds(100, 190, 80, 20);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 153, 0));
         jLabel6.setText("Password:");
         jPanel1.add(jLabel6);
         jLabel6.setBounds(100, 230, 80, 20);
@@ -173,7 +179,7 @@ public class regForm extends javax.swing.JFrame {
         jButton2.setBounds(190, 300, 80, 23);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setForeground(new java.awt.Color(255, 153, 0));
         jLabel7.setText("Registered? Click here to Login");
         jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -186,9 +192,9 @@ public class regForm extends javax.swing.JFrame {
         ps.setBounds(190, 220, 230, 30);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 450, 400);
+        jPanel1.setBounds(120, 0, 450, 400);
 
-        jPanel5.setBackground(new java.awt.Color(255, 102, 153));
+        jPanel5.setBackground(new java.awt.Color(255, 153, 0));
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -202,7 +208,7 @@ public class regForm extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel5);
-        jPanel5.setBounds(450, 0, 120, 400);
+        jPanel5.setBounds(0, 0, 120, 400);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

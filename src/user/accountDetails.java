@@ -92,12 +92,14 @@ public class accountDetails extends javax.swing.JFrame {
         });
         getContentPane().setLayout(null);
 
-        jPanel1.setBackground(new java.awt.Color(255, 102, 102));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 153, 0));
         jLabel1.setText("ACCOUNT INFORMATION");
 
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 153, 0));
         jLabel2.setText("LOGOUT");
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -106,6 +108,7 @@ public class accountDetails extends javax.swing.JFrame {
         });
 
         iddisplay.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        iddisplay.setForeground(new java.awt.Color(255, 153, 0));
         iddisplay.setText("(UID)");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -132,7 +135,7 @@ public class accountDetails extends javax.swing.JFrame {
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 550, 44);
 
-        jPanel2.setBackground(new java.awt.Color(255, 51, 51));
+        jPanel2.setBackground(new java.awt.Color(255, 153, 0));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-user-64.png"))); // NOI18N
 
@@ -182,21 +185,26 @@ public class accountDetails extends javax.swing.JFrame {
         getContentPane().add(jPanel2);
         jPanel2.setBounds(0, 40, 160, 360);
 
-        jPanel4.setBackground(new java.awt.Color(255, 102, 153));
+        jPanel4.setBackground(new java.awt.Color(0, 0, 0));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 153, 0));
         jLabel4.setText("First Name:");
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 153, 0));
         jLabel9.setText("Last Name:");
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 153, 0));
         jLabel10.setText("Email:");
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 153, 0));
         jLabel11.setText("Username:");
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 153, 0));
         jLabel12.setText("Account Type:");
 
         ut.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "User" }));
