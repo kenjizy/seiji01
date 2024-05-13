@@ -168,7 +168,7 @@ public class usersForm extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        edit.setBackground(new java.awt.Color(255, 150, 0));
+        edit.setBackground(new java.awt.Color(255, 153, 0));
         edit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 editMouseClicked(evt);
@@ -297,11 +297,12 @@ public class usersForm extends javax.swing.JFrame {
     }//GEN-LAST:event_p_addMouseExited
 
     private void editMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editMouseEntered
-        // TODO add your handling code here:
+     edit.setBackground(hovercolor);
+        
     }//GEN-LAST:event_editMouseEntered
 
     private void editMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editMouseExited
-        // TODO add your handling code here:
+    edit.setBackground(navcolor);
     }//GEN-LAST:event_editMouseExited
 
     private void edit01MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_edit01MouseClicked
@@ -309,16 +310,18 @@ public class usersForm extends javax.swing.JFrame {
     }//GEN-LAST:event_edit01MouseClicked
 
     private void edit01MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_edit01MouseEntered
-    edit.setBackground(hovercolor);
+    
     }//GEN-LAST:event_edit01MouseEntered
 
     private void edit01MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_edit01MouseExited
-    edit.setBackground(navcolor);
+
     }//GEN-LAST:event_edit01MouseExited
 
     private void p_addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_addMouseClicked
      createUserForm crf = new  createUserForm();
      crf.setVisible(true);
+     crf.remove.setEnabled(false);
+     crf.select.setEnabled(true);
      this.dispose();
 
     }//GEN-LAST:event_p_addMouseClicked
@@ -345,9 +348,22 @@ public class usersForm extends javax.swing.JFrame {
          crf.ps.setText(""+rs.getString("u_password"));
          crf.ut.setSelectedItem(""+rs.getString("u_type"));
          crf.us.setSelectedItem(""+rs.getString("u_status"));
+         crf.image.setIcon(crf.ResizeImage(rs.getString("u_image"),null,crf.image));
+         crf.oldpath = rs.getString("u_image");
+         crf.path = rs.getString("u_image");
+         crf.destination = rs.getString("u_image");
          crf.add.setEnabled(false);
          crf.update.setEnabled(true);
          crf.setVisible(true);
+         
+         if(rs.getString("u_image").isEmpty()){
+             crf.select.setEnabled(true);
+             crf.remove.setEnabled(false);
+         }else{
+             crf.select.setEnabled(false);
+             crf.remove.setEnabled(true);
+         }
+         
          this.dispose();
         }
         }catch(SQLException ex){

@@ -6,8 +6,20 @@
 package admin;
 
 import config.dbConnector;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import static testappseiji.regForm.email;
 import static testappseiji.regForm.usname;
@@ -24,8 +36,88 @@ public class createUserForm extends javax.swing.JFrame {
     public createUserForm() {
         initComponents();
     }
-     public boolean duplicateCheck(){
+    
+    public String destination = "";
+    File selectedFile;
+    public String oldpath;
+    public String path;
+    
+    public int FileExistenceChecker(String path){
+        File file = new File(path);
+        String fileName = file.getName();
         
+        Path filePath = Paths.get("src/userimages", fileName);
+        boolean fileExists = Files.exists(filePath);
+        
+        if (fileExists) {
+            return 1;
+        } else {
+            return 0;
+        }
+    
+    }
+    
+    public static int getHeightFromWidth(String imagePath, int desiredWidth) {
+        try {
+            // Read the image file
+            File imageFile = new File(imagePath);
+            BufferedImage image = ImageIO.read(imageFile);
+            
+            // Get the original width and height of the image
+            int originalWidth = image.getWidth();
+            int originalHeight = image.getHeight();
+            
+            // Calculate the new height based on the desired width and the aspect ratio
+            int newHeight = (int) ((double) desiredWidth / originalWidth * originalHeight);
+            
+            return newHeight;
+        } catch (IOException ex) {
+            System.out.println("No image found!");
+        }
+        
+        return -1;
+    }
+    
+    public  ImageIcon ResizeImage(String ImagePath, byte[] pic, JLabel label) {
+    ImageIcon MyImage = null;
+        if(ImagePath !=null){
+            MyImage = new ImageIcon(ImagePath);
+        }else{
+            MyImage = new ImageIcon(pic);
+        }
+        
+    int newHeight = getHeightFromWidth(ImagePath, label.getWidth());
+
+    Image img = MyImage.getImage();
+    Image newImg = img.getScaledInstance(label.getWidth(), newHeight, Image.SCALE_SMOOTH);
+    ImageIcon image = new ImageIcon(newImg);
+    return image;
+    }   
+    
+     public void imageUpdater(String existingFilePath, String newFilePath){
+        File existingFile = new File(existingFilePath);
+        if (existingFile.exists()) {
+            String parentDirectory = existingFile.getParent();
+            File newFile = new File(newFilePath);
+            String newFileName = newFile.getName();
+            File updatedFile = new File(parentDirectory, newFileName);
+            existingFile.delete();
+            try {
+                Files.copy(newFile.toPath(), updatedFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                System.out.println("Image updated successfully.");
+            } catch (IOException e) {
+                System.out.println("Error occurred while updating the image: "+e);
+            }
+        } else {
+            try{
+                Files.copy(selectedFile.toPath(), new File(destination).toPath(), StandardCopyOption.REPLACE_EXISTING);
+            }catch(IOException e){
+                System.out.println("Error on update!");
+            }
+        }
+   }
+    
+     public boolean duplicateCheck(){ 
         dbConnector dbc = new dbConnector();
         
         try{
@@ -117,6 +209,10 @@ public class createUserForm extends javax.swing.JFrame {
         refresh = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         uid = new javax.swing.JTextField();
+        select = new javax.swing.JButton();
+        remove = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        image = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
 
         jButton6.setText("jButton6");
@@ -131,32 +227,32 @@ public class createUserForm extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("Account Type:");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(80, 320, 80, 20);
+        jLabel1.setBounds(30, 340, 80, 20);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("User ID:");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(80, 80, 80, 20);
+        jLabel2.setBounds(30, 100, 80, 20);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("Last Name:");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(80, 160, 80, 20);
+        jLabel3.setBounds(30, 180, 80, 20);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("Email:");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(80, 200, 80, 20);
+        jLabel4.setBounds(30, 220, 80, 20);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel5.setText("Username:");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(80, 240, 80, 20);
+        jLabel5.setBounds(30, 260, 80, 20);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel6.setText("Password:");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(80, 280, 80, 20);
+        jLabel6.setBounds(30, 300, 80, 20);
 
         fn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -164,19 +260,19 @@ public class createUserForm extends javax.swing.JFrame {
             }
         });
         jPanel1.add(fn);
-        fn.setBounds(170, 110, 230, 30);
+        fn.setBounds(120, 130, 230, 30);
         jPanel1.add(ln);
-        ln.setBounds(170, 150, 230, 30);
+        ln.setBounds(120, 170, 230, 30);
         jPanel1.add(em);
-        em.setBounds(170, 190, 230, 30);
+        em.setBounds(120, 210, 230, 30);
         jPanel1.add(un);
-        un.setBounds(170, 230, 230, 30);
+        un.setBounds(120, 250, 230, 30);
         jPanel1.add(ps);
-        ps.setBounds(170, 270, 230, 30);
+        ps.setBounds(120, 290, 230, 30);
 
         ut.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "User" }));
         jPanel1.add(ut);
-        ut.setBounds(170, 310, 230, 30);
+        ut.setBounds(120, 330, 230, 30);
 
         add.setText("Add");
         add.addActionListener(new java.awt.event.ActionListener() {
@@ -185,16 +281,16 @@ public class createUserForm extends javax.swing.JFrame {
             }
         });
         jPanel1.add(add);
-        add.setBounds(170, 400, 70, 23);
+        add.setBounds(30, 40, 70, 23);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel7.setText("User Status:");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(80, 360, 80, 14);
+        jLabel7.setBounds(30, 380, 80, 14);
 
         us.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Active", "Pending" }));
         jPanel1.add(us);
-        us.setBounds(170, 350, 230, 30);
+        us.setBounds(120, 370, 230, 30);
 
         update.setText("Update");
         update.setEnabled(false);
@@ -204,15 +300,15 @@ public class createUserForm extends javax.swing.JFrame {
             }
         });
         jPanel1.add(update);
-        update.setBounds(250, 400, 70, 23);
+        update.setBounds(110, 40, 70, 23);
 
         del.setText("Delete");
         jPanel1.add(del);
-        del.setBounds(330, 400, 70, 23);
+        del.setBounds(190, 40, 70, 23);
 
         clear.setText("Clear");
         jPanel1.add(clear);
-        clear.setBounds(170, 430, 70, 23);
+        clear.setBounds(270, 40, 70, 23);
 
         cancel.setText("Cancel");
         cancel.addActionListener(new java.awt.event.ActionListener() {
@@ -221,23 +317,48 @@ public class createUserForm extends javax.swing.JFrame {
             }
         });
         jPanel1.add(cancel);
-        cancel.setBounds(250, 430, 70, 23);
+        cancel.setBounds(350, 40, 70, 23);
 
         refresh.setText("Refresh");
         jPanel1.add(refresh);
-        refresh.setBounds(330, 430, 70, 23);
+        refresh.setBounds(430, 40, 70, 23);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel8.setText("First Name:");
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(80, 120, 80, 14);
+        jLabel8.setBounds(30, 140, 80, 14);
 
         uid.setEnabled(false);
         jPanel1.add(uid);
-        uid.setBounds(170, 70, 230, 30);
+        uid.setBounds(120, 90, 230, 30);
+
+        select.setText("SELECT");
+        select.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectActionPerformed(evt);
+            }
+        });
+        jPanel1.add(select);
+        select.setBounds(370, 370, 100, 30);
+
+        remove.setText("REMOVE");
+        remove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeActionPerformed(evt);
+            }
+        });
+        jPanel1.add(remove);
+        remove.setBounds(550, 370, 100, 30);
+
+        jPanel4.setLayout(null);
+        jPanel4.add(image);
+        image.setBounds(10, 10, 260, 250);
+
+        jPanel1.add(jPanel4);
+        jPanel4.setBounds(370, 90, 280, 270);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 510, 480);
+        jPanel1.setBounds(100, 0, 680, 430);
 
         jPanel3.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -249,11 +370,11 @@ public class createUserForm extends javax.swing.JFrame {
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 480, Short.MAX_VALUE)
+            .addGap(0, 430, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanel3);
-        jPanel3.setBounds(510, 0, 100, 480);
+        jPanel3.setBounds(0, 0, 100, 430);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -269,13 +390,20 @@ public class createUserForm extends javax.swing.JFrame {
             System.out.println("Duplicate Exist");
         }else{
             dbConnector dbc = new dbConnector();
-            if( dbc.insertData ("INSERT INTO tbl_user(u_fname, u_lname, u_email, u_username, u_password, u_type, u_status)"
-                + "VALUES('"+fn.getText()+"','"+ln.getText()+"','"+em.getText()+"','"+un.getText()+"','"+ps.getText()+"','"+ut.getSelectedItem()+"','"+us.getSelectedItem()+"')"))
+            if( dbc.insertData ("INSERT INTO tbl_user(u_fname, u_lname, u_email, u_username, u_password, u_type, u_status, u_image)"
+                + "VALUES('"+fn.getText()+"','"+ln.getText()+"','"+em.getText()+"','"+un.getText()+"','"+ps.getText()+"','"+ut.getSelectedItem()+"','"+us.getSelectedItem()+"','"+destination+"')"))
         {
+            try{
+            Files.copy(selectedFile.toPath(),new File(destination).toPath(),StandardCopyOption.REPLACE_EXISTING);
             JOptionPane.showMessageDialog(null,"Registration Success!");
             usersForm uf = new usersForm();
             uf.setVisible(true);
             this.dispose();
+            
+            }catch(IOException ex){
+                System.out.println("Insert Image Error: "+ex);
+            }
+            
         }else{
             JOptionPane.showMessageDialog(null,"Connection Error!");
         }
@@ -304,14 +432,62 @@ public class createUserForm extends javax.swing.JFrame {
             System.out.println("Duplicate Exist");
         }else{
         dbConnector dbc = new dbConnector();
-        dbc.updateData("UPDATE tbl_user SET u_fname ='"+fn.getText()+"',u_lname = '"+ln.getText()+"',u_email = '"+em.getText()+"',u_username = '"+un.getText()+"',u_password = '"+ps.getText()+"',u_type = '"+ut.getSelectedItem()+"',u_status ='"+us.getSelectedItem()+"'WHERE u_id ='"+uid.getText()+"'");
+        dbc.updateData("UPDATE tbl_user SET u_fname ='"+fn.getText()+"',u_lname = '"+ln.getText()+"',u_email = '"+em.getText()+"',u_username = '"+un.getText()+"',u_password = '"+ps.getText()+"',u_type = '"+ut.getSelectedItem()+"',u_status ='"+us.getSelectedItem()+"',u_image = '"+destination+"'WHERE u_id ='"+uid.getText()+"'");
   
+        
+        if(destination.isEmpty()){
+            File existionFile = new File(oldpath);
+            if(existingFile.exists()){
+               existingFile.delete();
+            }
+        }else{
+            if(!(oldpath.equals(path))) {
+                imageUpdater(oldpath,path);
+            }
+        }
+            
         usersForm uf = new usersForm();
         uf.setVisible(true);
         this.dispose();
         }
 
     }//GEN-LAST:event_updateActionPerformed
+
+    private void removeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeActionPerformed
+    remove.setEnabled(false);
+    select.setEnabled(true);
+    image.setIcon(null);
+    destination ="";
+    path ="";
+        
+        
+    }//GEN-LAST:event_removeActionPerformed
+
+    private void selectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectActionPerformed
+    JFileChooser fileChooser = new JFileChooser();
+                int returnValue = fileChooser.showOpenDialog(null);
+                if (returnValue == JFileChooser.APPROVE_OPTION) {
+                    try {
+                        selectedFile = fileChooser.getSelectedFile();
+                        destination = "src/images/" + selectedFile.getName();
+                        path  = selectedFile.getAbsolutePath();
+                        
+                        
+                        if(FileExistenceChecker(path) == 1){
+                          JOptionPane.showMessageDialog(null, "File Already Exist, Rename or Choose another!");
+                            destination = "";
+                            path="";
+                        }else{
+                            image.setIcon(ResizeImage(path, null, image));
+                            select.setEnabled(false);
+                            remove.setEnabled(true);
+                        }
+                    } catch (Exception ex) {
+                        System.out.println("File Error!");
+                    }
+                }
+        
+    }//GEN-LAST:event_selectActionPerformed
 
     /**
      * @param args the command line arguments
@@ -355,6 +531,7 @@ public class createUserForm extends javax.swing.JFrame {
     private javax.swing.JButton del;
     public javax.swing.JTextField em;
     public javax.swing.JTextField fn;
+    public javax.swing.JLabel image;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -366,13 +543,30 @@ public class createUserForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     public javax.swing.JTextField ln;
     public javax.swing.JTextField ps;
     private javax.swing.JButton refresh;
+    public javax.swing.JButton remove;
+    public javax.swing.JButton select;
     public javax.swing.JTextField uid;
     public javax.swing.JTextField un;
     public javax.swing.JButton update;
     public javax.swing.JComboBox<String> us;
     public javax.swing.JComboBox<String> ut;
     // End of variables declaration//GEN-END:variables
+
+    private static class existingFile {
+
+        private static void delete() {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        private static boolean exists() {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        public existingFile() {
+        }
+    }
 }

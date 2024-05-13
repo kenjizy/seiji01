@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 10, 2024 at 07:30 AM
+-- Generation Time: May 13, 2024 at 08:00 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `dbtest01`
+-- Database: `testcafe`
 --
 
 -- --------------------------------------------------------
@@ -43,8 +43,7 @@ CREATE TABLE `tbl_user` (
 --
 
 INSERT INTO `tbl_user` (`u_id`, `u_fname`, `u_lname`, `u_email`, `u_username`, `u_password`, `u_type`, `u_status`) VALUES
-(1021, 'ken', 'ken', 'ken', 'kenken', 'wt4RPeFFpaJeJAP7TEW+3rU7O+nGl9XK5a/xuD6vUXI=', 'User', 'Active'),
-(1022, 'love', 'lovee', 'loveee', 'lovelove', 'hZHSHW2sUccnJVmBYQkO587TBEuBEEt+8mMSuUkp2kA=', 'Admin', 'Active');
+(1001, 'test', 'testt', 'test1', 'testtest', 'slamdunk', 'User', 'Acive');
 
 --
 -- Indexes for dumped tables
@@ -64,7 +63,7 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `u_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1023;
+  MODIFY `u_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1002;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
