@@ -218,7 +218,7 @@ public class createUserForm extends javax.swing.JFrame {
         jButton6.setText("jButton6");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 0));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -281,7 +281,7 @@ public class createUserForm extends javax.swing.JFrame {
             }
         });
         jPanel1.add(add);
-        add.setBounds(30, 40, 70, 23);
+        add.setBounds(40, 40, 70, 23);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel7.setText("User Status:");
@@ -300,15 +300,15 @@ public class createUserForm extends javax.swing.JFrame {
             }
         });
         jPanel1.add(update);
-        update.setBounds(110, 40, 70, 23);
+        update.setBounds(120, 40, 70, 23);
 
         del.setText("Delete");
         jPanel1.add(del);
-        del.setBounds(190, 40, 70, 23);
+        del.setBounds(200, 40, 70, 23);
 
         clear.setText("Clear");
         jPanel1.add(clear);
-        clear.setBounds(270, 40, 70, 23);
+        clear.setBounds(280, 40, 70, 23);
 
         cancel.setText("Cancel");
         cancel.addActionListener(new java.awt.event.ActionListener() {
@@ -317,11 +317,11 @@ public class createUserForm extends javax.swing.JFrame {
             }
         });
         jPanel1.add(cancel);
-        cancel.setBounds(350, 40, 70, 23);
+        cancel.setBounds(360, 40, 70, 23);
 
         refresh.setText("Refresh");
         jPanel1.add(refresh);
-        refresh.setBounds(430, 40, 70, 23);
+        refresh.setBounds(440, 40, 70, 23);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel8.setText("First Name:");
@@ -357,8 +357,7 @@ public class createUserForm extends javax.swing.JFrame {
         jPanel1.add(jPanel4);
         jPanel4.setBounds(370, 90, 280, 270);
 
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(100, 0, 680, 430);
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 680, 430));
 
         jPanel3.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -373,10 +372,10 @@ public class createUserForm extends javax.swing.JFrame {
             .addGap(0, 430, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel3);
-        jPanel3.setBounds(0, 0, 100, 430);
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
