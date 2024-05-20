@@ -48,7 +48,8 @@ public class adminDashboard extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel7.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel7.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel7.setForeground(new java.awt.Color(255, 255, 255));
         jPanel7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel7MouseClicked(evt);
@@ -90,29 +91,29 @@ public class adminDashboard extends javax.swing.JFrame {
         acc_uid.setForeground(new java.awt.Color(153, 153, 153));
         acc_uid.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         acc_uid.setText("ADMIN");
-        getContentPane().add(acc_uid, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 160, 25));
+        getContentPane().add(acc_uid, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 160, 25));
 
         acc_name.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         acc_name.setForeground(new java.awt.Color(153, 153, 153));
         acc_name.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         acc_name.setText("ADMIN");
-        getContentPane().add(acc_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 160, 25));
+        getContentPane().add(acc_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 160, 25));
 
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setBackground(new java.awt.Color(102, 102, 102));
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel1.setForeground(new java.awt.Color(102, 102, 102));
         jLabel1.setText("ADMIN DASHBOARD");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 223, 20));
 
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("LOGOUT");
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel2MouseClicked(evt);
             }
         });
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 300, 100, 20));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 310, 100, 20));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Premium Vector _ Abstract futuristic background_ blue glowing technology sci fi frame hud ui (1).jpg"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 350));
