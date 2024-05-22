@@ -137,8 +137,8 @@ public class userDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private void jPanel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseClicked
-        usersForm usf = new usersForm();
-        usf.setVisible(true);
+        viewMembership vm = new viewMembership();
+        vm.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jPanel7MouseClicked
 

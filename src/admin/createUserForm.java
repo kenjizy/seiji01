@@ -189,12 +189,9 @@ public class createUserForm extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        fn = new javax.swing.JTextField();
-        ln = new javax.swing.JTextField();
         em = new javax.swing.JTextField();
         un = new javax.swing.JTextField();
         ps = new javax.swing.JTextField();
@@ -207,7 +204,6 @@ public class createUserForm extends javax.swing.JFrame {
         clear = new javax.swing.JButton();
         cancel = new javax.swing.JButton();
         refresh = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
         uid = new javax.swing.JTextField();
         select = new javax.swing.JButton();
         remove = new javax.swing.JButton();
@@ -220,59 +216,49 @@ public class createUserForm extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 153, 0));
+        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Account Type:");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(30, 340, 80, 20);
+        jLabel1.setBounds(30, 270, 80, 20);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("User ID:");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(30, 100, 80, 20);
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel3.setText("Last Name:");
-        jPanel1.add(jLabel3);
-        jLabel3.setBounds(30, 180, 80, 20);
+        jLabel2.setBounds(30, 110, 80, 20);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Email:");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(30, 220, 80, 20);
+        jLabel4.setBounds(30, 230, 80, 20);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Username:");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(30, 260, 80, 20);
+        jLabel5.setBounds(30, 150, 80, 20);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Password:");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(30, 300, 80, 20);
-
-        fn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fnActionPerformed(evt);
-            }
-        });
-        jPanel1.add(fn);
-        fn.setBounds(120, 130, 230, 30);
-        jPanel1.add(ln);
-        ln.setBounds(120, 170, 230, 30);
+        jLabel6.setBounds(30, 190, 80, 20);
         jPanel1.add(em);
-        em.setBounds(120, 210, 230, 30);
+        em.setBounds(120, 220, 230, 30);
         jPanel1.add(un);
-        un.setBounds(120, 250, 230, 30);
+        un.setBounds(120, 140, 230, 30);
         jPanel1.add(ps);
-        ps.setBounds(120, 290, 230, 30);
+        ps.setBounds(120, 180, 230, 30);
 
         ut.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "User" }));
         jPanel1.add(ut);
-        ut.setBounds(120, 330, 230, 30);
+        ut.setBounds(120, 260, 230, 30);
 
         add.setText("Add");
         add.addActionListener(new java.awt.event.ActionListener() {
@@ -284,13 +270,14 @@ public class createUserForm extends javax.swing.JFrame {
         add.setBounds(40, 40, 70, 23);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("User Status:");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(30, 380, 80, 14);
+        jLabel7.setBounds(30, 310, 80, 14);
 
         us.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Active", "Pending" }));
         jPanel1.add(us);
-        us.setBounds(120, 370, 230, 30);
+        us.setBounds(120, 300, 230, 30);
 
         update.setText("Update");
         update.setEnabled(false);
@@ -303,6 +290,11 @@ public class createUserForm extends javax.swing.JFrame {
         update.setBounds(120, 40, 70, 23);
 
         del.setText("Delete");
+        del.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                delActionPerformed(evt);
+            }
+        });
         jPanel1.add(del);
         del.setBounds(200, 40, 70, 23);
 
@@ -323,14 +315,9 @@ public class createUserForm extends javax.swing.JFrame {
         jPanel1.add(refresh);
         refresh.setBounds(440, 40, 70, 23);
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel8.setText("First Name:");
-        jPanel1.add(jLabel8);
-        jLabel8.setBounds(30, 140, 80, 14);
-
         uid.setEnabled(false);
         jPanel1.add(uid);
-        uid.setBounds(120, 90, 230, 30);
+        uid.setBounds(120, 100, 230, 30);
 
         select.setText("SELECT");
         select.addActionListener(new java.awt.event.ActionListener() {
@@ -357,22 +344,22 @@ public class createUserForm extends javax.swing.JFrame {
         jPanel1.add(jPanel4);
         jPanel4.setBounds(370, 90, 280, 270);
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 680, 430));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 680, 430));
 
-        jPanel3.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel3.setBackground(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 70, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 430, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 70, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -380,7 +367,7 @@ public class createUserForm extends javax.swing.JFrame {
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
 
-        if(fn.getText().isEmpty()|| ln.getText().isEmpty()|| em.getText().isEmpty()||un.getText().isEmpty()|| ps.getText().isEmpty()){
+        if( em.getText().isEmpty()||un.getText().isEmpty()|| ps.getText().isEmpty()){
             JOptionPane.showMessageDialog(null,"All fields are required!");
         }else if(ps.getText().length()<8){
             JOptionPane.showMessageDialog(null,"Password character should be 8 above!");
@@ -389,8 +376,8 @@ public class createUserForm extends javax.swing.JFrame {
             System.out.println("Duplicate Exist");
         }else{
             dbConnector dbc = new dbConnector();
-            if( dbc.insertData ("INSERT INTO tbl_user(u_fname, u_lname, u_email, u_username, u_password, u_type, u_status, u_image)"
-                + "VALUES('"+fn.getText()+"','"+ln.getText()+"','"+em.getText()+"','"+un.getText()+"','"+ps.getText()+"','"+ut.getSelectedItem()+"','"+us.getSelectedItem()+"','"+destination+"')"))
+            if( dbc.insertData ("INSERT INTO tbl_user(u_email, u_username, u_password, u_type, u_status, u_image)"
+                + "VALUES('"+em.getText()+"','"+un.getText()+"','"+ps.getText()+"','"+ut.getSelectedItem()+"','"+us.getSelectedItem()+"','"+destination+"')"))
         {
             try{
             Files.copy(selectedFile.toPath(),new File(destination).toPath(),StandardCopyOption.REPLACE_EXISTING);
@@ -410,19 +397,15 @@ public class createUserForm extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_addActionPerformed
 
-    private void fnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fnActionPerformed
-
     private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
-      usersForm usf = new usersForm();
-      usf.setVisible(true);
+      adminForm af = new adminForm();
+      af.setVisible(true);
       this.dispose();     
     }//GEN-LAST:event_cancelActionPerformed
 
     private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
      
-        if(fn.getText().isEmpty()|| ln.getText().isEmpty()|| em.getText().isEmpty()||un.getText().isEmpty()|| ps.getText().isEmpty()){
+        if (em.getText().isEmpty()||un.getText().isEmpty()|| ps.getText().isEmpty()){
             JOptionPane.showMessageDialog(null,"All fields are required!");
         }else if(ps.getText().length()<8){
             JOptionPane.showMessageDialog(null,"Password character should be 8 above!");
@@ -431,7 +414,7 @@ public class createUserForm extends javax.swing.JFrame {
             System.out.println("Duplicate Exist");
         }else{
         dbConnector dbc = new dbConnector();
-        dbc.updateData("UPDATE tbl_user SET u_fname ='"+fn.getText()+"',u_lname = '"+ln.getText()+"',u_email = '"+em.getText()+"',u_username = '"+un.getText()+"',u_password = '"+ps.getText()+"',u_type = '"+ut.getSelectedItem()+"',u_status ='"+us.getSelectedItem()+"',u_image = '"+destination+"'WHERE u_id ='"+uid.getText()+"'");
+        dbc.updateData("UPDATE tbl_user SET u_fname = u_email = '"+em.getText()+"',u_username = '"+un.getText()+"',u_password = '"+ps.getText()+"',u_type = '"+ut.getSelectedItem()+"',u_status ='"+us.getSelectedItem()+"',u_image = '"+destination+"'WHERE u_id ='"+uid.getText()+"'");
   
         
         if(destination.isEmpty()){
@@ -488,6 +471,10 @@ public class createUserForm extends javax.swing.JFrame {
         
     }//GEN-LAST:event_selectActionPerformed
 
+    private void delActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_delActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -529,21 +516,17 @@ public class createUserForm extends javax.swing.JFrame {
     private javax.swing.JButton clear;
     private javax.swing.JButton del;
     public javax.swing.JTextField em;
-    public javax.swing.JTextField fn;
     public javax.swing.JLabel image;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    public javax.swing.JTextField ln;
     public javax.swing.JTextField ps;
     private javax.swing.JButton refresh;
     public javax.swing.JButton remove;

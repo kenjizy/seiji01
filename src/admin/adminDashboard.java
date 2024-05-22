@@ -123,8 +123,8 @@ public class adminDashboard extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jPanel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseClicked
-       usersForm usf = new usersForm();
-        usf.setVisible(true);
+       adminForm adf = new  adminForm();
+        adf.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jPanel7MouseClicked
 
